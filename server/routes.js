@@ -12,7 +12,7 @@ const router = express.Router();
 
 router.post('/commute', async (req, res) => {
   const commuterID = req.body.commuterID;
-  const factors = req.body.action;
+  const factors = req.body.actions;
   const commuterIDValid = validateCommuterID(commuterID);
   const timestampsValid = validateTimestamps(factors.map(f => f.ts));
   const actionsValid = validateActions(factors.map(f => f.action));
@@ -23,6 +23,7 @@ router.post('/commute', async (req, res) => {
   if (requestValid) {
     // await model function
     // return model function result
+    console.log('DATA IS VALID');
 
     res.send({ //temporary hardcode
       commuterID: 'COM-1',
