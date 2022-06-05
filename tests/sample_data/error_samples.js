@@ -1,6 +1,6 @@
 const commuterID1 = {
 	"commuterID": "COM-Z",
-	"actions": [{
+	"action": [{
 		"ts": "2022-02-01 8:40:00",
 		"action": "drove a car",
 		"unit": "mile",
@@ -10,7 +10,7 @@ const commuterID1 = {
 
 const commuterID2 = {
 	"commuterID": "MOC-1",
-	"actions": [{
+	"action": [{
 		"ts": "2022-02-01 8:40:00",
 		"action": "drove a car",
 		"unit": "mile",
@@ -18,9 +18,9 @@ const commuterID2 = {
 	}]
 }
 
-const timestamps = {
+const timestamp = {
 	"commuterID": "COM-42",
-	"actions": [{
+	"action": [{
 			"ts": "2022-01-01 10:05:11",
 			"action": "walked on sidewalk",
 			"unit": "mile",
@@ -37,7 +37,7 @@ const timestamps = {
 
 const action = {
 	"commuterID": "COM-1",
-	"actions": [{
+	"action": [{
 		"ts": "2022-02-01 8:40:00",
 		"action": 1,
 		"unit": "mile",
@@ -45,9 +45,9 @@ const action = {
 	}]
 }
 
-const units = {
+const unit = {
 	"commuterID": "COM-64",
-	"actions": [{
+	"action": [{
 			"ts": "2022-01-01 10:05:11",
 			"action": "jogged",
 			"unit": "mile",
@@ -70,7 +70,7 @@ const units = {
 
 const quantity1 = {
 	"commuterID": "COM-42",
-	"actions": [{
+	"action": [{
 			"ts": "2022-01-01 10:05:11",
 			"action": "walked on sidewalk",
 			"unit": "mile",
@@ -81,7 +81,7 @@ const quantity1 = {
 
 const quantity2 = {
 	"commuterID": "COM-42",
-	"actions": [{
+	"action": [{
 			"ts": "2022-01-01 10:05:11",
 			"action": "walked on sidewalk",
 			"unit": "mile",
@@ -93,9 +93,9 @@ const quantity2 = {
 module.exports = {
   commuterID1: commuterID1,
   commuterID2: commuterID2,
-  timestamps: timestamps,
+  timestamp: timestamp,
   action: action,
-  units: units,
+  unit: unit,
   quantity1: quantity1,
   quantity2: quantity2
 }
