@@ -4,7 +4,7 @@
   "description": "MiraDx Take Home Project",
   "main": "index.js",
   "scripts": {
-    "test": "jest --detectOpenHandles --coverage",
+    "test": "jest --coverage --testEnvironment=node",
     "start": "npx nodemon server/index.js"
   },
   "repository": {
