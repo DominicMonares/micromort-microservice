@@ -70,11 +70,11 @@ describe('Risk in Micromorts - Integration', () => {
       expect(res.headers['Content-Type']).toMatch(/json/);
 
       const body = res.body;
-      expect(body.commuterIDValid).toBe(false);
-      expect(body.timestampValid).toBe(true);
-      expect(body.actionValid).toBe(true);
-      expect(body.unitValid).toBe(true);
-      expect(body.quantityValid).toBe(true);
+      expect(body.commuterID).toBe(false);
+      expect(body.timestamp).toBe(true);
+      expect(body.action).toBe(true);
+      expect(body.unit).toBe(true);
+      expect(body.quantity).toBe(true);
     });
 
     it('should handle invalid commuter ID number', async () => {
@@ -87,11 +87,11 @@ describe('Risk in Micromorts - Integration', () => {
       expect(res.headers['Content-Type']).toMatch(/json/);
 
       const body = res.body;
-      expect(body.commuterIDValid).toBe(false);
-      expect(body.timestampValid).toBe(true);
-      expect(body.actionValid).toBe(true);
-      expect(body.unitValid).toBe(true);
-      expect(body.quantityValid).toBe(true);
+      expect(body.commuterID).toBe(false);
+      expect(body.timestamp).toBe(true);
+      expect(body.action).toBe(true);
+      expect(body.unit).toBe(true);
+      expect(body.quantity).toBe(true);
     });
 
     it('should handle invalid timestamps', async () => {
@@ -104,11 +104,11 @@ describe('Risk in Micromorts - Integration', () => {
       expect(res.headers['Content-Type']).toMatch(/json/);
 
       const body = res.body;
-      expect(body.commuterIDValid).toBe(true);
-      expect(body.timestampValid).toBe(false);
-      expect(body.actionValid).toBe(true);
-      expect(body.unitValid).toBe(true);
-      expect(body.quantityValid).toBe(true);
+      expect(body.commuterID).toBe(true);
+      expect(body.timestamp).toBe(false);
+      expect(body.action).toBe(true);
+      expect(body.unit).toBe(true);
+      expect(body.quantity).toBe(true);
     });
 
     it('should handle invalid actions', async () => {
@@ -121,11 +121,11 @@ describe('Risk in Micromorts - Integration', () => {
       expect(res.headers['Content-Type']).toMatch(/json/);
 
       const body = res.body;
-      expect(body.commuterIDValid).toBe(true);
-      expect(body.timestampValid).toBe(true);
-      expect(body.actionValid).toBe(false);
-      expect(body.unitValid).toBe(true);
-      expect(body.quantityValid).toBe(true);
+      expect(body.commuterID).toBe(true);
+      expect(body.timestamp).toBe(true);
+      expect(body.action).toBe(false);
+      expect(body.unit).toBe(true);
+      expect(body.quantity).toBe(true);
     });
 
     it('should handle invalid units', async () => {
@@ -138,11 +138,11 @@ describe('Risk in Micromorts - Integration', () => {
       expect(res.headers['Content-Type']).toMatch(/json/);
 
       const body = res.body;
-      expect(body.commuterIDValid).toBe(true);
-      expect(body.timestampValid).toBe(true);
-      expect(body.actionValid).toBe(true);
-      expect(body.unitValid).toBe(false);
-      expect(body.quantityValid).toBe(true);
+      expect(body.commuterID).toBe(true);
+      expect(body.timestamp).toBe(true);
+      expect(body.action).toBe(true);
+      expect(body.unit).toBe(false);
+      expect(body.quantity).toBe(true);
     });
 
     it('should handle invalid quantity type', async () => {
@@ -155,11 +155,11 @@ describe('Risk in Micromorts - Integration', () => {
       expect(res.headers['Content-Type']).toMatch(/json/);
 
       const body = res.body;
-      expect(body.commuterIDValid).toBe(true);
-      expect(body.timestampValid).toBe(true);
-      expect(body.actionValid).toBe(true);
-      expect(body.unitValid).toBe(true);
-      expect(body.quantityValid).toBe(false);
+      expect(body.commuterID).toBe(true);
+      expect(body.timestamp).toBe(true);
+      expect(body.action).toBe(true);
+      expect(body.unit).toBe(true);
+      expect(body.quantity).toBe(false);
     });
 
     it('should handle negative quantities', async () => {
@@ -172,11 +172,11 @@ describe('Risk in Micromorts - Integration', () => {
       expect(res.headers['Content-Type']).toMatch(/json/);
 
       const body = res.body;
-      expect(body.commuterIDValid).toBe(true);
-      expect(body.timestampValid).toBe(true);
-      expect(body.actionValid).toBe(true);
-      expect(body.unitValid).toBe(true);
-      expect(body.quantityValid).toBe(false);
+      expect(body.commuterID).toBe(true);
+      expect(body.timestamp).toBe(true);
+      expect(body.action).toBe(true);
+      expect(body.unit).toBe(true);
+      expect(body.quantity).toBe(false);
     });
 
   });
