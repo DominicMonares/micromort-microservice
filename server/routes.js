@@ -26,8 +26,8 @@ router.post('/commute', async (req, res) => {
 
     res.send({ //temporary hardcode
       commuterID: 'COM-1',
-      risk: 10
-    })
+      riskFactor: 10
+    });
   } else {
     res.status(500).send({
       commuterID: commuterIDValid,
