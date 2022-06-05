@@ -29,7 +29,7 @@ describe('Risk in Micromorts - Integration', () => {
       expect(res.status).toBe(200);
       expect(res.headers['Content-Type']).toMatch(/json/);
       expect(res.body.commuterID).toBe('COM-1');
-      expect(res.body.risk).toBe(10);
+      expect(res.body.riskFactor).toBe(10);
     });
 
     test('POST /commute COM-42', async () => {
@@ -41,7 +41,7 @@ describe('Risk in Micromorts - Integration', () => {
       expect(res.status).toBe(200);
       expect(res.headers['Content-Type']).toMatch(/json/);
       expect(res.body.commuterID).toBe('COM-1');
-      expect(res.body.risk).toBe(105124);
+      expect(res.body.riskFactor).toBe(105124);
     });
 
     test('POST /commute COM-64', async () => {
@@ -53,7 +53,7 @@ describe('Risk in Micromorts - Integration', () => {
       expect(res.status).toBe(200);
       expect(res.headers['Content-Type']).toMatch(/json/);
       expect(res.body.commuterID).toBe('COM-1');
-      expect(res.body.risk).toBe(90);
+      expect(res.body.riskFactor).toBe(90);
     });
 
   })
