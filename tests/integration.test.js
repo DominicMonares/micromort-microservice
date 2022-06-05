@@ -69,7 +69,7 @@ describe('Risk in Micromorts - Integration', () => {
       expect(res.status).toBe(500);
       expect(res.headers['Content-Type']).toMatch(/json/);
 
-      const body = res.body;
+      const body = res.body.errors;
       expect(body.commuterID).toBe(false);
       expect(body.timestamp).toBe(true);
       expect(body.action).toBe(true);
@@ -86,7 +86,7 @@ describe('Risk in Micromorts - Integration', () => {
       expect(res.status).toBe(500);
       expect(res.headers['Content-Type']).toMatch(/json/);
 
-      const body = res.body;
+      const body = res.body.errors;
       expect(body.commuterID).toBe(false);
       expect(body.timestamp).toBe(true);
       expect(body.action).toBe(true);
@@ -103,7 +103,7 @@ describe('Risk in Micromorts - Integration', () => {
       expect(res.status).toBe(500);
       expect(res.headers['Content-Type']).toMatch(/json/);
 
-      const body = res.body;
+      const body = res.body.errors;
       expect(body.commuterID).toBe(true);
       expect(body.timestamp).toBe(false);
       expect(body.action).toBe(true);
@@ -120,7 +120,7 @@ describe('Risk in Micromorts - Integration', () => {
       expect(res.status).toBe(500);
       expect(res.headers['Content-Type']).toMatch(/json/);
 
-      const body = res.body;
+      const body = res.body.errors;
       expect(body.commuterID).toBe(true);
       expect(body.timestamp).toBe(true);
       expect(body.action).toBe(false);
@@ -137,7 +137,7 @@ describe('Risk in Micromorts - Integration', () => {
       expect(res.status).toBe(500);
       expect(res.headers['Content-Type']).toMatch(/json/);
 
-      const body = res.body;
+      const body = res.body.errors;
       expect(body.commuterID).toBe(true);
       expect(body.timestamp).toBe(true);
       expect(body.action).toBe(true);
@@ -154,7 +154,7 @@ describe('Risk in Micromorts - Integration', () => {
       expect(res.status).toBe(500);
       expect(res.headers['Content-Type']).toMatch(/json/);
 
-      const body = res.body;
+      const body = res.body.errors;
       expect(body.commuterID).toBe(true);
       expect(body.timestamp).toBe(true);
       expect(body.action).toBe(true);
@@ -171,7 +171,7 @@ describe('Risk in Micromorts - Integration', () => {
       expect(res.status).toBe(500);
       expect(res.headers['Content-Type']).toMatch(/json/);
 
-      const body = res.body;
+      const body = res.body.errors;
       expect(body.commuterID).toBe(true);
       expect(body.timestamp).toBe(true);
       expect(body.action).toBe(true);
