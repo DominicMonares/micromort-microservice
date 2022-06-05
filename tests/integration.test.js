@@ -28,7 +28,7 @@ describe('Risk in Micromorts - Integration', () => {
 
       expect(res.status).toBe(200);
       expect(res.headers['Content-Type']).toMatch(/json/);
-      expect(res.body.id).toBe('COM-1');
+      expect(res.body.commuterID).toBe('COM-1');
       expect(res.body.risk).toBe(10);
     });
 
@@ -40,7 +40,7 @@ describe('Risk in Micromorts - Integration', () => {
 
       expect(res.status).toBe(200);
       expect(res.headers['Content-Type']).toMatch(/json/);
-      expect(res.body.id).toBe('COM-1');
+      expect(res.body.commuterID).toBe('COM-1');
       expect(res.body.risk).toBe(105124);
     });
 
@@ -52,7 +52,7 @@ describe('Risk in Micromorts - Integration', () => {
 
       expect(res.status).toBe(200);
       expect(res.headers['Content-Type']).toMatch(/json/);
-      expect(res.body.id).toBe('COM-1');
+      expect(res.body.commuterID).toBe('COM-1');
       expect(res.body.risk).toBe(90);
     });
 
