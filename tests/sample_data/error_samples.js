@@ -1,4 +1,4 @@
-const commuterId1 = {
+const commuterID1 = {
 	"commuterID": "COM-Z",
 	"actions": [{
 		"ts": "2022-02-01 8:40:00",
@@ -8,7 +8,7 @@ const commuterId1 = {
 	}]
 }
 
-const commuterId2 = {
+const commuterID2 = {
 	"commuterID": "MOC-1",
 	"actions": [{
 		"ts": "2022-02-01 8:40:00",
@@ -59,8 +59,8 @@ const units = {
 }
 
 module.exports = {
-  commuterId1: commuterId1,
-  commuterId2: commuterId2,
+  commuterID1: commuterID1,
+  commuterID2: commuterID2,
   timestamps: timestamps,
   units: units
 }
