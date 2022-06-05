@@ -59,8 +59,8 @@ const units = {
 }
 
 module.exports = {
-  commuterId1 = commuterId1,
-  commuterId2 = commuterId2,
-  timestamps = timestamps,
-  units = units
+  commuterId1: commuterId1,
+  commuterId2: commuterId2,
+  timestamps: timestamps,
+  units: units
 }
