@@ -60,7 +60,7 @@ describe('Risk in Micromorts - Integration', () => {
 
   describe('Invalid Data Handling', () => {
 
-    it('should handle invalid commuter ID prefix', async () => {
+    it('should handle invalid commuter ID number', async () => {
       const res = await request(app)
         .post('/commute')
         .send(commuterID1)
@@ -77,7 +77,7 @@ describe('Risk in Micromorts - Integration', () => {
       expect(body.quantity).toBe(true);
     });
 
-    it('should handle invalid commuter ID number', async () => {
+    it('should handle invalid commuter ID prefix', async () => {
       const res = await request(app)
         .post('/commute')
         .send(commuterID2)
