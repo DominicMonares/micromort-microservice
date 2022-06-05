@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/test', (req, res) => {
-  res.send({message: 'Success!'});
-});
+router.post('/commute', (req, res) => {
+  console.log('REQ ', req.body);
+  res.send({test: 1});
+})
 
 module.exports = router;
