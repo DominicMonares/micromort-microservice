@@ -1,7 +1,7 @@
 // implement date validation for current day?
 // i.e. rejecting dates/times later than current day/time
 
-const mmDDRules = {
+const dateRules = {
   1: 31,
   2: 29,
   3: 31,
@@ -21,4 +21,9 @@ const unitRules = {
   floor: true,
   minute: true,
   quantity: true
+}
+
+module.exports = {
+  dateRules: dateRules,
+  unitRules: unitRules
 }
