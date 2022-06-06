@@ -26,13 +26,15 @@ router.post('/commute', async (req, res) => {
     let micromort;
     pyshell.send(JSON.stringify(req.body));
 
+
     // awaiting in case actual model function contains async code
-    await pyshell.on('message', (message) => {
+    await pyshell.on('message', function(message) {
       console.log('PYTHON RES ', message);
       micromort = message;
     });
 
-    pyshell.end(err => {
+    pyshell.end(function(err) {
+      console.log('END')
       if (err) { throw err }
     });
 
