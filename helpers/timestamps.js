@@ -20,9 +20,9 @@ const timeValid = (givenTime) => {
   const hour = Number(time[0]);
   const hourValid = hour && hour >= 0 && hour < 24;
   const minute = Number(time[1]);
-  const minuteValid = minute && minute >= 0 && minute < 60;
+  const minuteValid = minute !== NaN && minute >= 0 && minute < 60;
   const second = Number(time[2]);
-  const secondValid = second && second >= 0 && second < 60;
+  const secondValid = second !== NaN && second >= 0 && second < 60;
   return hourValid && minuteValid && secondValid ? true : false;
 }
 
