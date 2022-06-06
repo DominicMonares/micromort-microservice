@@ -73,9 +73,9 @@ describe('Risk in Micromorts - Unit', () => {
       expect(validateQuantities(quantities)).toBe(true);
     });
 
-    it('should return true for valid quantities', () => {
+    it('should return false for invalid quantities', () => {
       const quantities = [54, '63'];
-      expect(validateQuantities(quantities)).toBe(true);
+      expect(validateQuantities(quantities)).toBe(false);
     });
 
   });
