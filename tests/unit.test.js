@@ -1,3 +1,4 @@
+const { dateValid, timeValid, sameDay } = require('../helpers/timestamps.js');
 const {
   validateCommuterID,
   validateTimestamps,
@@ -5,6 +6,7 @@ const {
   validateUnits,
   validateQuantities
 } = require('../helpers/validation.js');
+
 
 describe('Risk in Micromorts - Unit', () => {
 
@@ -35,6 +37,44 @@ describe('Risk in Micromorts - Unit', () => {
       const timestamps = ['2022-01-01 10:05:11', '2022-01-11 10:16:52'];
       expect(validateTimestamps(timestamps)).toBe(false);
     });
+
+    it('should return true for valid dates', () => {
+      expect(dateValid('2022-11-23')).toBe(true);
+    });
+
+    it('should return false for invalid months', () => {
+      expect(dateValid('2022-13-01')).toBe(false);
+    });
+
+    it('should return false for invalid days', () => {
+      expect(dateValid('2022-01-32')).toBe(false);
+    });
+
+    it('should return true for valid times', () => {
+      expect(timeValid('10:05:11')).toBe(true);
+    });
+
+    it('should return false for invalid hours', () => {
+      expect(timeValid('25:05:11')).toBe(false);
+    });
+
+    it('should return false for invalid minutes', () => {
+      expect(timeValid('10:60:11')).toBe(false);
+    });
+
+    it('should return false for invalid seconds', () => {
+      expect(timeValid('10:05:60')).toBe(false);
+    });
+
+    it('should return true for same day results', () => {
+      const timestamps = ['2022-01-01 10:05:11', '2022-01-01 10:16:52'];
+      expect(sameDay(timestamps)).toBe(true);
+    })
+
+    it('should return false for different day results', () => {
+      const timestamps = ['2022-01-01 10:05:11', '2022-01-11 10:16:52'];
+      expect(sameDay(timestamps)).toBe(false);
+    })
 
   });
 
