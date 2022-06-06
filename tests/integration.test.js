@@ -24,10 +24,10 @@ describe('Risk in Micromorts - Integration', () => {
       const res = await request(app)
         .post('/commute')
         .send(com_1)
-        .set('Accept', 'application/json');
+        .set('Accept', 'application/json')
+        .expect(200)
+        .expect('Content-Type', /json/);
 
-      expect(res.status).toBe(200);
-      expect(res.headers['Content-Type']).toMatch(/json/);
       expect(res.body.commuterID).toBe('COM-1');
       expect(res.body.riskFactor).toBe(10);
     });
@@ -36,10 +36,10 @@ describe('Risk in Micromorts - Integration', () => {
       const res = await request(app)
         .post('/commute')
         .send(com_42)
-        .set('Accept', 'application/json');
+        .set('Accept', 'application/json')
+        .expect(200)
+        .expect('Content-Type', /json/);
 
-      expect(res.status).toBe(200);
-      expect(res.headers['Content-Type']).toMatch(/json/);
       expect(res.body.commuterID).toBe('COM-1');
       expect(res.body.riskFactor).toBe(105124);
     });
@@ -48,10 +48,10 @@ describe('Risk in Micromorts - Integration', () => {
       const res = await request(app)
         .post('/commute')
         .send(com_64)
-        .set('Accept', 'application/json');
+        .set('Accept', 'application/json')
+        .expect(200)
+        .expect('Content-Type', /json/);
 
-      expect(res.status).toBe(200);
-      expect(res.headers['Content-Type']).toMatch(/json/);
       expect(res.body.commuterID).toBe('COM-1');
       expect(res.body.riskFactor).toBe(90);
     });
@@ -64,10 +64,9 @@ describe('Risk in Micromorts - Integration', () => {
       const res = await request(app)
         .post('/commute')
         .send(commuterID1)
-        .set('Accept', 'application/json');
-
-      expect(res.status).toBe(500);
-      expect(res.headers['Content-Type']).toMatch(/json/);
+        .set('Accept', 'application/json')
+        .expect(200)
+        .expect('Content-Type', /json/);
 
       const body = res.body.errors;
       expect(body.commuterID).toBe(false);
@@ -81,10 +80,9 @@ describe('Risk in Micromorts - Integration', () => {
       const res = await request(app)
         .post('/commute')
         .send(commuterID2)
-        .set('Accept', 'application/json');
-
-      expect(res.status).toBe(500);
-      expect(res.headers['Content-Type']).toMatch(/json/);
+        .set('Accept', 'application/json')
+        .expect(200)
+        .expect('Content-Type', /json/);
 
       const body = res.body.errors;
       expect(body.commuterID).toBe(false);
@@ -98,10 +96,9 @@ describe('Risk in Micromorts - Integration', () => {
       const res = await request(app)
         .post('/commute')
         .send(timestamp)
-        .set('Accept', 'application/json');
-
-      expect(res.status).toBe(500);
-      expect(res.headers['Content-Type']).toMatch(/json/);
+        .set('Accept', 'application/json')
+        .expect(200)
+        .expect('Content-Type', /json/);
 
       const body = res.body.errors;
       expect(body.commuterID).toBe(true);
@@ -115,10 +112,9 @@ describe('Risk in Micromorts - Integration', () => {
       const res = await request(app)
         .post('/commute')
         .send(action)
-        .set('Accept', 'application/json');
-
-      expect(res.status).toBe(500);
-      expect(res.headers['Content-Type']).toMatch(/json/);
+        .set('Accept', 'application/json')
+        .expect(200)
+        .expect('Content-Type', /json/);
 
       const body = res.body.errors;
       expect(body.commuterID).toBe(true);
@@ -132,10 +128,9 @@ describe('Risk in Micromorts - Integration', () => {
       const res = await request(app)
         .post('/commute')
         .send(unit)
-        .set('Accept', 'application/json');
-
-      expect(res.status).toBe(500);
-      expect(res.headers['Content-Type']).toMatch(/json/);
+        .set('Accept', 'application/json')
+        .expect(200)
+        .expect('Content-Type', /json/);
 
       const body = res.body.errors;
       expect(body.commuterID).toBe(true);
@@ -149,10 +144,9 @@ describe('Risk in Micromorts - Integration', () => {
       const res = await request(app)
         .post('/commute')
         .send(quantity1)
-        .set('Accept', 'application/json');
-
-      expect(res.status).toBe(500);
-      expect(res.headers['Content-Type']).toMatch(/json/);
+        .set('Accept', 'application/json')
+        .expect(200)
+        .expect('Content-Type', /json/);
 
       const body = res.body.errors;
       expect(body.commuterID).toBe(true);
@@ -166,10 +160,9 @@ describe('Risk in Micromorts - Integration', () => {
       const res = await request(app)
         .post('/commute')
         .send(quantity2)
-        .set('Accept', 'application/json');
-
-      expect(res.status).toBe(500);
-      expect(res.headers['Content-Type']).toMatch(/json/);
+        .set('Accept', 'application/json')
+        .expect(200)
+        .expect('Content-Type', /json/);
 
       const body = res.body.errors;
       expect(body.commuterID).toBe(true);
