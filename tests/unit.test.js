@@ -28,16 +28,6 @@ describe('Risk in Micromorts - Unit', () => {
 
   describe('Timestamps', () => {
 
-    it('should return true for valid timestamps', () => {
-      const timestamps = ['2022-01-01 10:05:11', '2022-01-01 10:16:52'];
-      expect(validateTimestamps(timestamps)).toBe(true);
-    });
-
-    it('should return false for invalid timestamps', () => {
-      const timestamps = ['2022-01-01 10:05:11', '2022-01-11 10:16:52'];
-      expect(validateTimestamps(timestamps)).toBe(false);
-    });
-
     it('should return true for valid dates', () => {
       expect(dateValid('2022-11-23')).toBe(true);
     });
@@ -75,6 +65,16 @@ describe('Risk in Micromorts - Unit', () => {
       const timestamps = ['2022-01-01 10:05:11', '2022-01-11 10:16:52'];
       expect(sameDay(timestamps)).toBe(false);
     })
+
+    it('should return true for valid timestamps', () => {
+      const timestamps = ['2022-01-01 10:05:11', '2022-01-01 10:16:52'];
+      expect(validateTimestamps(timestamps)).toBe(true);
+    });
+
+    it('should return false for invalid timestamps', () => {
+      const timestamps = ['2022-01-01 10:05:11', '2022-01-11 10:16:52'];
+      expect(validateTimestamps(timestamps)).toBe(false);
+    });
 
   });
 
