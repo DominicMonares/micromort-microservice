@@ -14,7 +14,7 @@ const {
   quantity2
 } = require('./sample_data/error_samples');
 
-xdescribe('Risk in Micromorts - Integration', () => {
+describe('Risk in Micromorts - Integration', () => {
 
   const app = createServer();
 
