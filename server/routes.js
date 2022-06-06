@@ -16,8 +16,8 @@ router.post('/commute', async (req, res) => {
   const commuterIDValid = validateCommuterID(commuterID);
   const timestampsValid = validateTimestamps(factors.map(f => f.ts));
   const actionsValid = validateActions(factors.map(f => f.action));
-  const unitsValid = validateUnits(factors.map(u => u.unit));
-  const quantitiesValid = validateQuantities(factors.map(q => q.unit));
+  const unitsValid = validateUnits(factors.map(f => f.unit));
+  const quantitiesValid = validateQuantities(factors.map(f => f.quantity));
   const requestValid = commuterIDValid && timestampsValid && actionsValid && unitsValid && quantitiesValid;
 
   if (requestValid) {
