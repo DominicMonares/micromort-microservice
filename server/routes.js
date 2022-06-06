@@ -1,4 +1,6 @@
 const express = require('express');
+const { PythonShell } = require('python-shell');
+const pyshell = new PythonShell('../micromort.py');
 
 const {
   validateCommuterID,
@@ -21,13 +23,22 @@ router.post('/commute', async (req, res) => {
   const requestValid = commuterIDValid && timestampsValid && actionsValid && unitsValid && quantitiesValid;
 
   if (requestValid) {
-    // await model function
-    // return model function result
-    console.log('DATA IS VALID');
+    let micromort;
+    pyshell.send(JSON.stringify(req.body));
 
-    res.send({ //temporary hardcode
-      commuterID: 'COM-1',
-      riskFactor: 10
+    // awaiting in case actual model function contains async code
+    await pyshell.on('message', (message) => {
+      console.log('PYTHON RES ', message);
+      micromort = message;
+    });
+
+    pyshell.end(err => {
+      if (err) { throw err }
+    });
+
+    res.send({
+      commuterID: commuterID,
+      micromort: micromort
     });
   } else {
     res.status(500).send({
