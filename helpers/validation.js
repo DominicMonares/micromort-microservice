@@ -1,4 +1,4 @@
-const { dateValid, timeValid } = require('./timestamps.js');
+const { dateValid, timeValid, sameDay } = require('./timestamps.js');
 const { unitRules } = require('../rules.js');
 
 const validateCommuterID = (commuterID) => {
@@ -11,12 +11,14 @@ const validateCommuterID = (commuterID) => {
 }
 
 const validateTimestamps = (timestamps) => {
-  return timestamps.every(t => {
+  const timeStampsValid = timestamps.every(t => {
     if (typeof t !== 'string' || t.split(' ').length !== 2) { return false }
 
     const time = t.split(' ');
     return dateValid(time[0]) && timeValid(time[1]) ? true : false;
   });
+
+  return timeStampsValid && sameDay(timestamps) ? true : false;
 }
 
 const validateActions = (actions) => {

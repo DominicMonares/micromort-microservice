@@ -26,7 +26,24 @@ const timeValid = (givenTime) => {
   return hourValid && minuteValid && secondValid ? true : false;
 }
 
+const sameDay = (timestamps) => {
+  let day;
+  return timestamps.every(t => {
+    const ts = t.split(' ');
+    if (ts.length !== 2) { return false }
+
+    const date = ts[0].split('-');
+    if (date.length !== 3) { return false }
+
+    const currentDay = date[2]
+    if (!day) { day = currentDay }
+
+    return currentDay === day ? true : false;
+  });
+}
+
 module.exports = {
   dateValid: dateValid,
-  timeValid: timeValid
+  timeValid: timeValid,
+  sameDay: sameDay
 }
