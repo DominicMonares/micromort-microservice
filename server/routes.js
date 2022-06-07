@@ -42,7 +42,6 @@ router.post('/commute', async (req, res) => {
     });
   } else {
     res.status(500).send({
-
       errors: {
         commuterID: commuterIDValid,
         timestamps: timestampsValid,
