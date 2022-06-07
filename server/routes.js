@@ -31,7 +31,6 @@ router.post('/commute', async (req, res) => {
 
     pyshell.send(JSON.stringify(req.body));
 
-    // awaiting in case actual model function contains async code
     await pyshell.on('message', message => {
       res.send({
         commuterID: commuterID,
