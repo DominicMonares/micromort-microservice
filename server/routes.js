@@ -9,7 +9,6 @@ const {
   validateQuantities
 } = require('../helpers/validation.js');
 
-
 router.post('/commute', async (req, res) => {
   const commuterID = req.body.commuterID;
   const factors = req.body.actions;
@@ -22,7 +21,7 @@ router.post('/commute', async (req, res) => {
 
   if (requestValid) {
     const { PythonShell } = require('python-shell');
-    const pyshell = new PythonShell('micromort.py');
+    const pyshell = new PythonShell('micromorts.py');
 
     pyshell.send(JSON.stringify(req.body));
 
@@ -37,7 +36,6 @@ router.post('/commute', async (req, res) => {
     pyshell.end(function (err, code, signal) {
       if (err) throw err;
     });
-
   } else {
     res.status(500).send({
       commuterID: commuterIDValid,
