@@ -25,7 +25,7 @@ router.post('/commute', async (req, res) => {
 
     pyshell.send(JSON.stringify(req.body));
 
-    // awaiting in case actual model contains async code
+    // awaiting in case actual model function contains async code
     await pyshell.on('message', (message) => {
       res.send({
         commuterID: commuterID,
@@ -34,10 +34,15 @@ router.post('/commute', async (req, res) => {
     });
 
     pyshell.end(function (err, code, signal) {
-      if (err) throw err;
+      if (err) {
+        res.status(500).send({
+          errors: { micromort: true }
+        });
+      }
     });
   } else {
     res.status(500).send({
+
       errors: {
         commuterID: commuterIDValid,
         timestamps: timestampsValid,
