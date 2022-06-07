@@ -17,7 +17,13 @@ router.post('/commute', async (req, res) => {
   const actionsValid = validateActions(factors.map(f => f.action));
   const unitsValid = validateUnits(factors.map(f => f.unit));
   const quantitiesValid = validateQuantities(factors.map(f => f.quantity));
-  const requestValid = commuterIDValid && timestampsValid && actionsValid && unitsValid && quantitiesValid;
+  const requestValid = (
+    commuterIDValid &&
+    timestampsValid &&
+    actionsValid &&
+    unitsValid &&
+    quantitiesValid
+  )
 
   if (requestValid) {
     const { PythonShell } = require('python-shell');
@@ -26,14 +32,14 @@ router.post('/commute', async (req, res) => {
     pyshell.send(JSON.stringify(req.body));
 
     // awaiting in case actual model function contains async code
-    await pyshell.on('message', (message) => {
+    await pyshell.on('message', message => {
       res.send({
         commuterID: commuterID,
         micromorts: Number(message)
       });
     });
 
-    pyshell.end(function (err) {
+    pyshell.end(err => {
       if (err) {
         res.status(500).send({
           errors: { micromort: true }
