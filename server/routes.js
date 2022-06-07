@@ -29,7 +29,7 @@ router.post('/commute', async (req, res) => {
     await pyshell.on('message', (message) => {
       res.send({
         commuterID: commuterID,
-        micromort: message
+        micromorts: Number(message)
       });
     });
 
@@ -38,11 +38,13 @@ router.post('/commute', async (req, res) => {
     });
   } else {
     res.status(500).send({
-      commuterID: commuterIDValid,
-      timestamp: timestampsValid,
-      action: actionsValid,
-      unit: unitsValid,
-      quantities: quantitiesValid
+      errors: {
+        commuterID: commuterIDValid,
+        timestamps: timestampsValid,
+        actions: actionsValid,
+        units: unitsValid,
+        quantities: quantitiesValid
+      }
     });
   }
 })
