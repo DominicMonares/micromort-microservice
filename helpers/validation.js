@@ -1,5 +1,5 @@
 const { dateValid, timeValid, sameDay } = require('./timestamps.js');
-const { unitRules } = require('../rules.js');
+const { unitRules } = require('./rules.js');
 
 const validateCommuterID = (commuterID) => {
   if (typeof commuterID !== 'string' || commuterID.split('-').length !== 2) {

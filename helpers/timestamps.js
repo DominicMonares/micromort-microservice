@@ -1,4 +1,4 @@
-const { dateRules } = require('../rules.js');
+const { dateRules } = require('./rules.js');
 
 const dateValid = (givenDate) => {
   const date = givenDate.split('-');
