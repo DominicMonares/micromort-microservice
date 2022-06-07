@@ -41,12 +41,14 @@ router.post('/commute', async (req, res) => {
     pyshell.end(err => {
       if (err) {
         res.status(500).send({
+          commuterID: commuterID,
           errors: { micromort: true }
         });
       }
     });
   } else {
     res.status(500).send({
+      commuterID: commuterID,
       errors: {
         commuterID: commuterIDValid,
         timestamps: timestampsValid,
