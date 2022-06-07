@@ -26,15 +26,11 @@ const validateActions = (actions) => {
 }
 
 const validateUnits = (units) => {
-  return units.every(u => {
-    return unitRules[u] ? true : false;
-  })
+  return units.every(u => { return unitRules[u] ? true : false })
 }
 
 const validateQuantities = (quantities) => {
-  return quantities.every(q => {
-    return typeof q === 'number' && q > 0 ? true : false;
-  });
+  return quantities.every(q => { return typeof q === 'number' && q > 0 ? true : false });
 }
 
 module.exports = {
