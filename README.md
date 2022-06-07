@@ -1,9 +1,9 @@
 # micromort-microservice
-MiraDx take home project
+API microservice that feeds/consumes data from the micromort model function
 
 ## Installation
 ```
-npm install 
+npm install
 ```
 
 ## Start Server
