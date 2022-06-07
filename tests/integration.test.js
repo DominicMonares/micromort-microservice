@@ -168,6 +168,7 @@ describe('Risk in Micromorts - Integration', () => {
       expect(body.units).toBe(true);
       expect(body.quantities).toBe(false);
     });
+
   });
 
 });
