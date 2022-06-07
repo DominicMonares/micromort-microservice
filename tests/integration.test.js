@@ -65,12 +65,15 @@ describe('Risk in Micromorts - Integration', () => {
         .expect(500)
         .expect('Content-Type', /json/);
 
-      const body = res.body.errors;
-      expect(body.commuterID).toBe(false);
-      expect(body.timestamps).toBe(true);
-      expect(body.actions).toBe(true);
-      expect(body.units).toBe(true);
-      expect(body.quantities).toBe(true);
+      const body = res.body;
+      const commuterID = body.commuterID;
+      const errors = body.errors;
+      expect(commuterID).toBe('COM-Z');
+      expect(errors.commuterID).toBe(false);
+      expect(errors.timestamps).toBe(true);
+      expect(errors.actions).toBe(true);
+      expect(errors.units).toBe(true);
+      expect(errors.quantities).toBe(true);
     });
 
     it('should handle invalid commuter ID prefix', async () => {
@@ -81,12 +84,15 @@ describe('Risk in Micromorts - Integration', () => {
         .expect(500)
         .expect('Content-Type', /json/);
 
-      const body = res.body.errors;
-      expect(body.commuterID).toBe(false);
-      expect(body.timestamps).toBe(true);
-      expect(body.actions).toBe(true);
-      expect(body.units).toBe(true);
-      expect(body.quantities).toBe(true);
+        const body = res.body;
+        const commuterID = body.commuterID;
+        const errors = body.errors;
+        expect(commuterID).toBe('MOC-1');
+        expect(errors.commuterID).toBe(false);
+        expect(errors.timestamps).toBe(true);
+        expect(errors.actions).toBe(true);
+        expect(errors.units).toBe(true);
+        expect(errors.quantities).toBe(true);
     });
 
     it('should handle invalid timestamps', async () => {
@@ -97,12 +103,15 @@ describe('Risk in Micromorts - Integration', () => {
         .expect(500)
         .expect('Content-Type', /json/);
 
-      const body = res.body.errors;
-      expect(body.commuterID).toBe(true);
-      expect(body.timestamps).toBe(false);
-      expect(body.actions).toBe(true);
-      expect(body.units).toBe(true);
-      expect(body.quantities).toBe(true);
+        const body = res.body;
+        const commuterID = body.commuterID;
+        const errors = body.errors;
+        expect(commuterID).toBe('COM-42');
+        expect(errors.commuterID).toBe(true);
+        expect(errors.timestamps).toBe(false);
+        expect(errors.actions).toBe(true);
+        expect(errors.units).toBe(true);
+        expect(errors.quantities).toBe(true);
     });
 
     it('should handle invalid actions', async () => {
@@ -113,12 +122,15 @@ describe('Risk in Micromorts - Integration', () => {
         .expect(500)
         .expect('Content-Type', /json/);
 
-      const body = res.body.errors;
-      expect(body.commuterID).toBe(true);
-      expect(body.timestamps).toBe(true);
-      expect(body.actions).toBe(false);
-      expect(body.units).toBe(true);
-      expect(body.quantities).toBe(true);
+        const body = res.body;
+        const commuterID = body.commuterID;
+        const errors = body.errors;
+        expect(commuterID).toBe('COM-1');
+        expect(errors.commuterID).toBe(true);
+        expect(errors.timestamps).toBe(true);
+        expect(errors.actions).toBe(false);
+        expect(errors.units).toBe(true);
+        expect(errors.quantities).toBe(true);
     });
 
     it('should handle invalid units', async () => {
@@ -129,12 +141,15 @@ describe('Risk in Micromorts - Integration', () => {
         .expect(500)
         .expect('Content-Type', /json/);
 
-      const body = res.body.errors;
-      expect(body.commuterID).toBe(true);
-      expect(body.timestamps).toBe(true);
-      expect(body.actions).toBe(true);
-      expect(body.units).toBe(false);
-      expect(body.quantities).toBe(true);
+        const body = res.body;
+        const commuterID = body.commuterID;
+        const errors = body.errors;
+        expect(commuterID).toBe('COM-64');
+        expect(errors.commuterID).toBe(true);
+        expect(errors.timestamps).toBe(true);
+        expect(errors.actions).toBe(true);
+        expect(errors.units).toBe(false);
+        expect(errors.quantities).toBe(true);
     });
 
     it('should handle invalid quantity type', async () => {
@@ -145,12 +160,15 @@ describe('Risk in Micromorts - Integration', () => {
         .expect(500)
         .expect('Content-Type', /json/);
 
-      const body = res.body.errors;
-      expect(body.commuterID).toBe(true);
-      expect(body.timestamps).toBe(true);
-      expect(body.actions).toBe(true);
-      expect(body.units).toBe(true);
-      expect(body.quantities).toBe(false);
+        const body = res.body;
+        const commuterID = body.commuterID;
+        const errors = body.errors;
+        expect(commuterID).toBe('COM-42');
+        expect(errors.commuterID).toBe(true);
+        expect(errors.timestamps).toBe(true);
+        expect(errors.actions).toBe(true);
+        expect(errors.units).toBe(true);
+        expect(errors.quantities).toBe(false);
     });
 
     it('should handle negative quantities', async () => {
@@ -161,12 +179,15 @@ describe('Risk in Micromorts - Integration', () => {
         .expect(500)
         .expect('Content-Type', /json/);
 
-      const body = res.body.errors;
-      expect(body.commuterID).toBe(true);
-      expect(body.timestamps).toBe(true);
-      expect(body.actions).toBe(true);
-      expect(body.units).toBe(true);
-      expect(body.quantities).toBe(false);
+        const body = res.body;
+        const commuterID = body.commuterID;
+        const errors = body.errors;
+        expect(commuterID).toBe('COM-42');
+        expect(errors.commuterID).toBe(true);
+        expect(errors.timestamps).toBe(true);
+        expect(errors.actions).toBe(true);
+        expect(errors.units).toBe(true);
+        expect(errors.quantities).toBe(false);
     });
 
   });
