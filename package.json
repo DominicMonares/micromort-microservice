@@ -1,7 +1,7 @@
 {
   "name": "micromort-microservice",
   "version": "1.0.0",
-  "description": "MiraDx Take Home Project",
+  "description": "API microservice that feeds/consumes data from the micromort model function",
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage --testEnvironment=node",
