@@ -19,7 +19,6 @@ describe('Risk in Micromorts - Integration', () => {
   const app = createServer();
 
   describe('Valid Data Handling', () => {
-
     test('POST /commute COM-1', async () => {
       const res = await request(app)
         .post('/commute')
@@ -40,7 +39,7 @@ describe('Risk in Micromorts - Integration', () => {
         .expect(200)
         .expect('Content-Type', /json/);
 
-      expect(res.body.commuterID).toBe('COM-1');
+      expect(res.body.commuterID).toBe('COM-42');
       expect(res.body.micromorts).toBe(105124);
     });
 
@@ -52,28 +51,26 @@ describe('Risk in Micromorts - Integration', () => {
         .expect(200)
         .expect('Content-Type', /json/);
 
-      expect(res.body.commuterID).toBe('COM-1');
+      expect(res.body.commuterID).toBe('COM-64');
       expect(res.body.micromorts).toBe(90);
     });
-
   })
 
   describe('Invalid Data Handling', () => {
-
     it('should handle invalid commuter ID number', async () => {
       const res = await request(app)
         .post('/commute')
         .send(commuterID1)
         .set('Accept', 'application/json')
-        .expect(200)
+        .expect(500)
         .expect('Content-Type', /json/);
 
       const body = res.body.errors;
       expect(body.commuterID).toBe(false);
-      expect(body.timestamp).toBe(true);
-      expect(body.action).toBe(true);
-      expect(body.unit).toBe(true);
-      expect(body.quantity).toBe(true);
+      expect(body.timestamps).toBe(true);
+      expect(body.actions).toBe(true);
+      expect(body.units).toBe(true);
+      expect(body.quantities).toBe(true);
     });
 
     it('should handle invalid commuter ID prefix', async () => {
@@ -81,15 +78,15 @@ describe('Risk in Micromorts - Integration', () => {
         .post('/commute')
         .send(commuterID2)
         .set('Accept', 'application/json')
-        .expect(200)
+        .expect(500)
         .expect('Content-Type', /json/);
 
       const body = res.body.errors;
       expect(body.commuterID).toBe(false);
-      expect(body.timestamp).toBe(true);
-      expect(body.action).toBe(true);
-      expect(body.unit).toBe(true);
-      expect(body.quantity).toBe(true);
+      expect(body.timestamps).toBe(true);
+      expect(body.actions).toBe(true);
+      expect(body.units).toBe(true);
+      expect(body.quantities).toBe(true);
     });
 
     it('should handle invalid timestamps', async () => {
@@ -97,15 +94,15 @@ describe('Risk in Micromorts - Integration', () => {
         .post('/commute')
         .send(timestamp)
         .set('Accept', 'application/json')
-        .expect(200)
+        .expect(500)
         .expect('Content-Type', /json/);
 
       const body = res.body.errors;
       expect(body.commuterID).toBe(true);
-      expect(body.timestamp).toBe(false);
-      expect(body.action).toBe(true);
-      expect(body.unit).toBe(true);
-      expect(body.quantity).toBe(true);
+      expect(body.timestamps).toBe(false);
+      expect(body.actions).toBe(true);
+      expect(body.units).toBe(true);
+      expect(body.quantities).toBe(true);
     });
 
     it('should handle invalid actions', async () => {
@@ -113,15 +110,15 @@ describe('Risk in Micromorts - Integration', () => {
         .post('/commute')
         .send(action)
         .set('Accept', 'application/json')
-        .expect(200)
+        .expect(500)
         .expect('Content-Type', /json/);
 
       const body = res.body.errors;
       expect(body.commuterID).toBe(true);
-      expect(body.timestamp).toBe(true);
-      expect(body.action).toBe(false);
-      expect(body.unit).toBe(true);
-      expect(body.quantity).toBe(true);
+      expect(body.timestamps).toBe(true);
+      expect(body.actions).toBe(false);
+      expect(body.units).toBe(true);
+      expect(body.quantities).toBe(true);
     });
 
     it('should handle invalid units', async () => {
@@ -129,15 +126,15 @@ describe('Risk in Micromorts - Integration', () => {
         .post('/commute')
         .send(unit)
         .set('Accept', 'application/json')
-        .expect(200)
+        .expect(500)
         .expect('Content-Type', /json/);
 
       const body = res.body.errors;
       expect(body.commuterID).toBe(true);
-      expect(body.timestamp).toBe(true);
-      expect(body.action).toBe(true);
-      expect(body.unit).toBe(false);
-      expect(body.quantity).toBe(true);
+      expect(body.timestamps).toBe(true);
+      expect(body.actions).toBe(true);
+      expect(body.units).toBe(false);
+      expect(body.quantities).toBe(true);
     });
 
     it('should handle invalid quantity type', async () => {
@@ -145,15 +142,15 @@ describe('Risk in Micromorts - Integration', () => {
         .post('/commute')
         .send(quantity1)
         .set('Accept', 'application/json')
-        .expect(200)
+        .expect(500)
         .expect('Content-Type', /json/);
 
       const body = res.body.errors;
       expect(body.commuterID).toBe(true);
-      expect(body.timestamp).toBe(true);
-      expect(body.action).toBe(true);
-      expect(body.unit).toBe(true);
-      expect(body.quantity).toBe(false);
+      expect(body.timestamps).toBe(true);
+      expect(body.actions).toBe(true);
+      expect(body.units).toBe(true);
+      expect(body.quantities).toBe(false);
     });
 
     it('should handle negative quantities', async () => {
@@ -161,17 +158,16 @@ describe('Risk in Micromorts - Integration', () => {
         .post('/commute')
         .send(quantity2)
         .set('Accept', 'application/json')
-        .expect(200)
+        .expect(500)
         .expect('Content-Type', /json/);
 
       const body = res.body.errors;
       expect(body.commuterID).toBe(true);
-      expect(body.timestamp).toBe(true);
-      expect(body.action).toBe(true);
-      expect(body.unit).toBe(true);
-      expect(body.quantity).toBe(false);
+      expect(body.timestamps).toBe(true);
+      expect(body.actions).toBe(true);
+      expect(body.units).toBe(true);
+      expect(body.quantities).toBe(false);
     });
-
   });
 
 });
