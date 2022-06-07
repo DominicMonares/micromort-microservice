@@ -1,4 +1,5 @@
 const express = require('express');
+const router = express.Router();
 
 const {
   validateCommuterID,
@@ -8,7 +9,6 @@ const {
   validateQuantities
 } = require('../helpers/validation.js');
 
-const router = express.Router();
 
 router.post('/commute', async (req, res) => {
   const commuterID = req.body.commuterID;
@@ -21,12 +21,23 @@ router.post('/commute', async (req, res) => {
   const requestValid = commuterIDValid && timestampsValid && actionsValid && unitsValid && quantitiesValid;
 
   if (requestValid) {
-    let micromort;
+    const { PythonShell } = require('python-shell');
+    const pyshell = new PythonShell('micromort.py');
 
-    res.send({
-      commuterID: commuterID,
-      micromort: micromort
+    pyshell.send(JSON.stringify(req.body));
+
+    // awaiting in case actual model contains async code
+    await pyshell.on('message', (message) => {
+      res.send({
+        commuterID: commuterID,
+        micromort: message
+      });
     });
+
+    pyshell.end(function (err, code, signal) {
+      if (err) throw err;
+    });
+
   } else {
     res.status(500).send({
       commuterID: commuterIDValid,
