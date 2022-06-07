@@ -6,7 +6,7 @@ def read_input():
 
 def main():
   lines = read_input()
-  print(lines)
+  print('PYTHON TEST SUCCESS')
 
 if __name__ == '__main__':
   main()
