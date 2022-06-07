@@ -33,7 +33,7 @@ router.post('/commute', async (req, res) => {
       });
     });
 
-    pyshell.end(function (err, code, signal) {
+    pyshell.end(function (err) {
       if (err) {
         res.status(500).send({
           errors: { micromort: true }
